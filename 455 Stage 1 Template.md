@@ -1,4 +1,4 @@
-# IY4113 Milestone 4
+# IY455 Stage 1
 
 | Assessment Details | Please Complete All Details             |
 | ------------------ | --------------------------------------- |
@@ -43,38 +43,84 @@ Borrow_Details
 | ------------- | ------------ | ------------- | ------------------------------- | ------------------- | --------------- | ---------- | --------------- | ---------- | --------------- |
 | LN74857       | BN1721       | Ben Jones     | 28 Low Road, Nottingham NG5 3PB | £0.00               | Allowed         | 06/02/2002 | £8.00           | On Loan    | 13/02/2002      |
 
-|                        |              |                         |          |                 |         |                |
-| ---------------------- | ------------ | ----------------------- | -------- | --------------- | ------- | --------------:|
-| Loan<br> No. (FK) (PK) | DVD No. (PK) | DVD Title (FK)          | DVD Year | Rental Category | Copy No | Shelf Position |
-| LN74857                | DN198        | Raiders of the Lost Ark | 1981     | Adventure       | CN1099  | AV123          |
-| LN74857                | DN9829       | John Wick               | 2014     | Action          | CN8739  | AC8728         |
+Loan_Details
+
+| Loan No. (FK) (PK) | DVD No. (PK) | DVD Title (FK)          | DVD Year | Rental Category | Copy No | Shelf Position |
+|:------------------:| ------------ | ----------------------- | -------- | --------------- | ------- | --------------:|
+| LN74857            | DN198        | Raiders of the Lost Ark | 1981     | Adventure       | CN1099  | AV123          |
+| LN74857            | DN9829       | John Wick               | 2014     | Action          | CN8739  | AC8728         |
 
 
 
-|                         |             |
-| ----------------------- | ----------- |
+
+DVD_Details
+
 | DVD Title (PK)          | Rental Cost |
+| ----------------------- | ----------- |
 | Raiders of the Lost Ark | £3.50       |
 | John Wick               | £4.50       |
 
+##### 3NF
+
+Loan_Details
+
+| Loan No. (PK) | Borrower No(FK). | Loan Date  | Return Due Date |
+| ------------- | ---------------- | ---------- | --------------- |
+| LN74857       | BN1721           | 06/02/2002 | 13/02/2002      |
+
+Borrow_details
+
+| Borrower No (PK). | Borrower Name | Borrower Address                | Borrower Status |
+| ----------------- | ------------- | ------------------------------- | --------------- |
+| BN1721            | Ben Jones     | 28 Low Road, Nottingham NG5 3PB | Allowed         |
+
+Copy_Details   
+
+| Copy No (PK) (FK) | Shelf Position | DVD Status |
+| ----------------- | -------------- | ---------- |
+| CN1099            | AV123          | On Loan    |
+| CN8739            | AC8728         | On Loan    |
+
+Rental_details
+
+| Rental Category (PK) | Borrower Total Fine | Rental Cost | Rental Duration |
+| -------------------- | ------------------- | ----------- | --------------- |
+| Adventure            | £0.00               | £3.50       | One day loan    |
+| Action               | £0.00               | £4.50       | Three day loan  |
+
+DVD _Details
+
+| DVD No. (PK) (FK) | DVD Title (PK, FK)      | DVD Year | Rental Category |
+| ----------------- | ----------------------- | -------- | --------------- |
+| DN198             | Raiders of the Lost Ark | 1981     | Adventure       |
+| DN9829            | John Wick               | 2014     | Action          |
+
+Dvd_Copy    
+
+| Copy No (PK) (FK) | DVD No. (PK) (FK) |
+| ----------------- | ----------------- |
+| CN1099            | DN198             |
+| CN8739            | DN9829            |
+
 ------------------------------------------------------------------------------------------------------------------------------
 
-*Program code goes here:*
+##### ERD
 
 ------------------------------------------------------------------------------------------------------------------------------
 
-### Updated Gantt Chart
+<img title="" src="file:///C:/Users/user/AppData/Roaming/marktext/images/2026-02-20-03-54-06-image.png" alt="" width="710">
 
-------------------------------------------------------------------------------------------------------------------------------
 
-*Add your updated Gantt chart here!*
 
-------------------------------------------------------------------------------------------------------------------------------
+##### •    Describe what normalisation is and what are its advantages and disadvantages
 
-### Diary Entries
+**Normalisation**
 
-------------------------------------------------------------------------------------------------------------------------------
+Normalisation is a set of procedures that make sure that a database is organised in an effective manner. This allows the data to be accessed using queries in an effective manner.
+**Advantages of Normalisation**
 
-*Add diary entries here detailing what you have done, wny you have done it, and any problems encountered.*
+The database doesn’t have redundant data, it is smaller in size and so less money needs to be spent of storage. There is less data to search through and therefore much faster to run a query on the data. There is no data duplication so less mistakes
 
-------------------------------------------------------------------------------------------------------------------------------
+**Disadvantages of Normalisation**
+
+It is time consuming to organise the data to the normalised form.
