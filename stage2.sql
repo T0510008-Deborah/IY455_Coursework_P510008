@@ -21,6 +21,7 @@ CREATE TABLE RentalCategory(
 
 INSERT INTO RentalCategory(RentalDuration, RentalCost, FineChargeRate) VALUES
 
+SELECT * FROM RentalCategory;
 
 CREATE TABLE DVD(
     DVDID VARCHAR(255)  NOT NULL,
