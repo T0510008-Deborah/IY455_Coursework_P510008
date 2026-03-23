@@ -13,7 +13,7 @@ INSERT INTO Borrower (BorrowerName, BorrowerAddress, BorrowerStatus) VALUES
 SELECT * FROM Borrower;
 
 CREATE TABLE RentalCategory(
-    RentalCategory VARCHAR(255)  NOT NULL,
+    RentalCategory VARCHAR(255)  NOT NULL PRIMARY KEY,
     RentalDuration VARCHAR(255)  NOT NULL,
     RentalCost     DECIMAL(4, 2) NOT NULL,
     FineChargeRate DECIMAL(4, 2) NOT NULL
@@ -27,8 +27,9 @@ CREATE TABLE DVD(
     DVDID VARCHAR(255)  NOT NULL,
     DVDTitle VARCHAR(255)  NOT NULL,
     StarringActor     DECIMAL(4, 2) NOT NULL,
-    DVDYear DECIMAL(4, 2) NOT NULL
-    RentalCategory VARCHAR(255) NOT NULL, FOREIGN KEY (RentalCategory) REFERENCES RentalCategory (RentalCategory)
+    DVDYear DECIMAL(4, 2) NOT NULL,
+    RentalCategory VARCHAR(255) NOT NULL,
+    FOREIGN KEY (RentalCategory) REFERENCES RentalCategory (RentalCategory)
 );
 
 
@@ -234,7 +235,7 @@ INSERT INTO DVD(DVDTitle, StarringActor, DVDYear, RentalCategory) VALUES
     ('The Imitation Game', 'Benedict Cumberbatch', 2014, 'Biography'),
     ('Central Intelligence', 'Dwayne Johnson', 2016, 'Action');
 
-
+SELECT * FROM DVD;
 
 CREATE TABLE DVDCopy(
     CopyID INT PRIMARY KEY AUTO_INCREMENT,
@@ -245,6 +246,7 @@ CREATE TABLE DVDCopy(
 
 INSERT INTO DVDCopy(DVDID, ShelfPosition, DVDStatus) VALUES
 
+SELECT * FROM DVDCopy;
 
 CREATE TABLE Loan(
     LoanID INT PRIMARY KEY AUTO_INCREMENT,
@@ -254,6 +256,7 @@ CREATE TABLE Loan(
 
 INSERT INTO Loan(BorrowerID, LoanDate) VALUES
 
+SELECT * FROM Loan;
 
 CREATE TABLE LoanDVD(
     LoanID INT PRIMARY KEY AUTO_INCREMENT, FOREIGN KEY (LoanID) REFERENCES Loan (LoanID)
@@ -262,4 +265,6 @@ CREATE TABLE LoanDVD(
     ActualReturnDate DATETIME DEFAULT CURRENT_TIMESTAMP  NOT NULL
 );
 
-INSERT INTO LoanDVD(ReturnDueDate, ActualReturnDate) VALUES
+INSERT INTO LoanDVD(LoanID, CopyID, ReturnDueDate, ActualReturnDate) VALUES
+
+SELECT * FROM LoanDVD;
