@@ -82,37 +82,37 @@ CREATE TABLE DVD(
     FOREIGN KEY (CategoryID) REFERENCES RentalCategory (CategoryID)
 );
 
-INSERT INTO DVD(DVDTitle, StarringActor, DVDYear, CategoryID) VALUES
+INSERT INTO DVD(DvdTitle, StarringActor, DvdYear, CategoryID) VALUES
 ('La La Land','Ryan Gosling',2016,5),
 ('Prometheus','Noomi Rapace',2012,2),
-('Guardians of the Galaxy','Chris Pratt',2014,12),
+('Guardians of the Galaxy','Chris Pratt',2014,9),
 ('Split','James McAvoy',2016,4),
 ('Arrival','Amy Adams',2016,7),
 ('Gone Girl','Ben Affleck',2014,6),
 ('Moana','Aulii Cravalho',2016,3),
 ('Passengers','Jennifer Lawrence',2016,2),
 ('The Conjuring','Vera Farmiga',2013,4),
-('Moonlight','Mahershala Ali',2016,7),
+('Moonlight','Mahershala Ali',2016,10),
 ('Fantastic Beasts and Where to Find Them','Eddie Redmayne',2016,2),
 ('Toy Story','Tom Hanks',1995,3),
-('Suicide Squad','Will Smith',2016,12),
+('Suicide Squad','Will Smith',2016,10),
 ('The Hateful Eight','Samuel L. Jackson',2015,6),
 ('The Edge of Seventeen','Hailee Steinfeld',2016,5),
 ('Interstellar','Matthew McConaughey',2014,2),
-('Black Panther','Chadwick Boseman',2018,12),
+('Black Panther','Chadwick Boseman',2018,9),
 ('Insidious','Patrick Wilson',2010,4),
 ('The Prestige','Christian Bale',2006,7),
 ('Bad Moms','Mila Kunis',2016,5),
 ('Shutter Island','Leonardo DiCaprio',2010,6),
 ('Finding Nemo','Albert Brooks',2003,3),
-('Doctor Strange','Benedict Cumberbatch',2016,12),
+('Doctor Strange','Benedict Cumberbatch',2016,9),
 ('Why Him?','Zoey Deutch',2016,5),
-('The Martian','Matt Damon',2015,2),
+('The Martian','Matt Damon',2015,10),
 ('Get Out','Daniel Kaluuya',2017,4),
 ('The Departed','Leonardo DiCaprio',2006,6),
 ('Frozen','Idina Menzel',2013,3),
 ('Mamma Mia!','Meryl Streep',2008,5),
-('X-Men: Apocalypse','James McAvoy',2016,12),
+('X-Men: Apocalypse','James McAvoy',2016,9),
 ('Prisoners','Hugh Jackman',2013,6),
 ('Manchester by the Sea','Casey Affleck',2016,7),
 ('Superbad','Michael Cera',2007,5),
@@ -186,13 +186,7 @@ INSERT INTO DvdCopy(DvdID, ShelfPosition, DvdStatus) VALUES
 (41, 'AG101', 'On Loan'),
 (42, 'AG102', 'Available'),
 (43, 'AG103', 'Reserved'),
-(44, 'AG104', 'On Loan'),
-(45, 'AG105', 'Available'),
-(46, 'AG106', 'On Loan'),
-(47, 'AG107', 'Retired'),
-(48, 'AG108', 'Available'),
-(49, 'AG109', 'On Loan'),
-(50, 'AG110', 'Reserved');
+(44, 'AG104', 'On Loan');
 
 SELECT * FROM DvdCopy;
 
@@ -254,6 +248,35 @@ CREATE TABLE LoanCopy(
 );
 
 INSERT INTO LoanCopy(LoanID, CopyID, ReturnDueDate, ActualReturnDate) VALUES
-
+(1,  9,  '2025-01-17 10:00:00', '2025-01-17 09:00:00'),
+(1,  16, '2025-07-17 10:00:00', '2025-07-18 11:00:00'),
+(2,  23, '2025-01-22 11:30:00', '2025-01-22 10:00:00'),
+(2,  33, '2025-01-22 11:30:00', '2025-01-24 14:00:00'),
+(3,  11, '2025-10-27 09:45:00', '2025-10-27 09:00:00'),
+(3,  28, '2025-01-27 09:45:00', '2025-01-29 10:00:00'),
+(4,  13, '2025-06-08 14:00:00', '2025-06-08 13:00:00'),
+(4,  32, '2025-02-08 14:00:00', '2025-02-10 15:00:00'),
+(5,  17, '2025-02-12 16:20:00', '2025-02-12 15:00:00'),
+(5,  37, '2025-02-12 16:20:00', '2025-02-14 10:00:00'),
+(6,  24, '2025-02-17 10:10:00', '2025-02-17 09:00:00'),
+(6,  41, '2025-10-17 10:10:00', '2025-10-19 11:00:00'),
+(7,  18, '2025-04-21 13:30:00', '2025-04-21 12:00:00'),
+(7,  34, '2025-02-21 13:30:00', '2025-02-23 09:00:00'),
+(8,  25, '2025-02-27 09:00:00', '2025-02-26 10:00:00'),
+(8,  44, '2025-02-27 09:00:00', '2025-02-27 08:00:00'),
+(9,  10, '2025-03-08 11:00:00', '2025-03-08 10:00:00'),
+(9,  29, '2025-05-08 11:00:00', '2025-05-11 14:00:00'),
+(10, 19, '2025-03-12 15:45:00', '2025-03-12 14:00:00'),
+(10, 38, '2025-12-12 15:45:00', '2025-12-16 09:00:00'),
+(11, 12, '2025-03-08 11:00:00', '2025-03-08 10:00:00'),
+(11, 30, '2025-03-08 11:00:00', '2025-03-10 12:00:00'),
+(12, 20, '2025-08-22 14:15:00', '2025-08-22 13:00:00'),
+(12, 45, '2025-03-22 14:15:00', '2025-03-25 10:00:00'),
+(13, 26, '2025-11-27 09:20:00', '2025-11-27 08:00:00'),
+(13, 39, '2025-03-27 09:20:00', '2025-03-30 11:00:00'),
+(14, 14, '2025-04-08 11:40:00', '2025-04-08 10:00:00'),
+(14, 31, '2025-04-08 11:40:00', '2025-04-10 09:00:00'),
+(15, 21, '2025-04-12 13:00:00', '2025-04-12 12:00:00'),
+(15, 21, '2025-05-16 14:00:00', '2025-05-19 14:00:00');
 
 SELECT * FROM LoanCopy;
