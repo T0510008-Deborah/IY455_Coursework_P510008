@@ -2,7 +2,6 @@ CREATE DATABASE DVD_Loan_System;
 USE DVD_Loan_System;
 
 -- TABLE 1: BORROWER
-
 CREATE TABLE Borrower (
     BorrowerNo VARCHAR(10) PRIMARY KEY,
     BorrowerName VARCHAR(255) NOT NULL,
@@ -45,7 +44,6 @@ INSERT INTO Borrower (BorrowerNo, BorrowerName, BorrowerAddress, BorrowerStatus)
 SELECT * FROM Borrower;
 
 -- TABLE 2: RENTAL
-
 CREATE TABLE Rental (
     CategoryNo VARCHAR(10) PRIMARY KEY,
     RentalCategory VARCHAR(255) NOT NULL,
@@ -70,7 +68,6 @@ INSERT INTO Rental (CategoryNo, RentalCategory, RentalCost, LoanDuration, FineCh
 SELECT * FROM Rental;
 
 -- TABLE 3: DVD
-
 CREATE TABLE DVD (
     DvdNo VARCHAR(10) PRIMARY KEY,
     DvdTitle VARCHAR(255) NOT NULL,
@@ -130,7 +127,6 @@ INSERT INTO DVD (DvdNo, DvdTitle, StarringActor, DvdYear, CategoryNo) VALUES
 SELECT * FROM DVD;
 
 -- TABLE 4: DVD COPY
-
 CREATE TABLE DvdCopy (
     CopyNo VARCHAR(10) PRIMARY KEY,
     DvdNo VARCHAR(10),
@@ -189,7 +185,6 @@ INSERT INTO DvdCopy (CopyNo, DvdNo, ShelfPosition, DvdStatus) VALUES
 SELECT * FROM DvdCopy;
 
 -- TABLE 5: LOAN
-
 CREATE TABLE Loan (
     LoanNo VARCHAR(10) PRIMARY KEY,
     BorrowerNo VARCHAR(10),
@@ -232,7 +227,6 @@ INSERT INTO Loan (LoanNo, BorrowerNo, LoanDate) VALUES
 SELECT * FROM Loan;
 
 -- TABLE 6: LOAN COPY
-
 CREATE TABLE LoanCopy (
     LoanNo VARCHAR(10),
     CopyNo VARCHAR(10),
